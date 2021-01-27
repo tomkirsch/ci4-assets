@@ -25,7 +25,7 @@ class AssetConfig extends BaseConfig
 	public $minify = FALSE;
 	
 	// change this to a place in your app where config.php and groupsConfig.php live if you'd like to change them
-	public $minifyConfigPath = ROOTPATH.'vendor/Tomkirsch/Assets/ThirdParty/';
+	public $minifyConfigPath = ROOTPATH.'vendor\tomkirsch\assets\src\ThirdParty\\';
 	
 	// the URI where your minify controller is (eg. example.com/min?f=home.css)
 	public $minifyUri = 'min';
