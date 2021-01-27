@@ -1,0 +1,11 @@
+{
+    "name": "tomkirsch/assets",
+    "type": "library",
+    "description": "Asset Library for CI4",
+	"license": "MIT",
+    "require": {
+        "php": ">=7.2",
+		"codeigniter4/framework": "^4",
+		"mrclay/minify": "~3.0.0"
+    }
+}
