@@ -1,6 +1,7 @@
 <?php namespace Tomkirsch\Assets\Libraries;
 
 use Minify\App as MinifyApp; // package: mrclay/minify
+use Tomkirsch\Assets\Config\AssetConfig;
 
 /*
 
@@ -52,7 +53,7 @@ class AssetLib{
 		self::PRIORITY_POSTDOM_LOCAL.'_ajax',
 	];
 	
-	static function getFontFormat($type){
+	static function getFontFormat(string $type):string{
 		switch($type){
 			case 'ttf': return 'truetype';
 			case 'eot': return 'embedded-opentype';
@@ -61,8 +62,8 @@ class AssetLib{
 		}
 	}
 	
-	public function __construct($config=NULL){
-		$this->config = $config ?? config('Tomkirsch\Assets\Config\AssetConfig');
+	public function __construct(?AssetConfig $config=NULL){
+		$this->config = $config ?? new AssetConfig();
 		// is this a development environment? then ensure caching is disabled!
 		if(env('CI_ENVIRONMENT') === 'development' && !$this->config->ignoreDevEnv){
 			$this->config->cacheKey = time();
@@ -133,7 +134,7 @@ class AssetLib{
 	}
 	
 	// render HTML that goes in <head>
-	public function renderHead(){
+	public function renderHead():string{
 		$this->resetOutput();
 		$critical = $this->isCriticalRequest();
 		
@@ -243,8 +244,8 @@ class AssetLib{
 		return $out;
 	}
 	
-	// render HTML that goes in <body>, preferrable just before the closing tag
-	public function renderBody(){
+	// render HTML that goes in <body>, preferrably just before the closing tag
+	public function renderBody():string{
 		$this->resetOutput();
 		$scriptDict = [];
 		
@@ -277,7 +278,10 @@ class AssetLib{
 	}
 	
 	// call this to run the 3rd party minify code
-	public function runMinify(){
+	public function runMinify(bool $cleanOutputBuffer=TRUE){
+		if($cleanOutputBuffer){
+			ob_end_clean();
+		}
 		$app = new MinifyApp($this->config->minifyConfigPath);
 		$app->runServer();
 	}
@@ -291,7 +295,7 @@ class AssetLib{
 	}
 	
 	// parse data attributes and place it in the correct position
-	protected function addAsset($asset, &$list, $path){
+	protected function addAsset($asset, array &$list, string $path){
 		// should we add the path?
 		if($asset->priority !== self::PRIORITY_RAW){
 			// content is a filepath
@@ -340,14 +344,14 @@ class AssetLib{
 		}
 	}
 	
-	protected function getMinifyUrl($files){
+	protected function getMinifyUrl(array $files):string{
 		$url = $this->config->minifyUri;
 		$url .= stristr($url, '?') ? '&' : '?';
 		return site_url($url.'f='.implode(',', $files));
 	}
 	
 	// render a group of styles or scripts with the same priority
-	protected function renderQueue($queue, $priority, $type){
+	protected function renderQueue(array $queue, string $priority, string $type):string{
 		if(empty($queue)) return '';
 		$out = "\n<!-- AssetLib: $priority $type -->\n";
 		switch($priority){
@@ -438,7 +442,7 @@ class AssetLib{
 	}
 	
 	// render RAW CSS/JS
-	protected function renderRaw($queue, $type){
+	protected function renderRaw(array $queue, string $type){
 		$out = '';
 		if(empty($queue)) return;
 		$out .= implode('', $queue);
@@ -446,7 +450,7 @@ class AssetLib{
 	}
 	
 	// render a group of files as inline CSS/JS by reading the files
-	protected function renderInline($queue, $type){
+	protected function renderInline(array $queue, string $type){
 		$out = '';
 		if(empty($queue)) return;
 		foreach($queue as $file){
@@ -464,7 +468,7 @@ WARNING: File does not exist '.$file.'
 	}
 	
 	// render non-inlined files
-	protected function renderGroup($options){
+	protected function renderGroup(array $options){
 		if(empty($options['queue'])) return ''; // nothing to process!
 		// set some defaults, just in case
 		$options = array_merge([
@@ -542,7 +546,7 @@ WARNING: File does not exist '.$file.'
 	}
 	
 	// wrap output with <style>, <script>, etc.
-	protected function getOutput(){
+	protected function getOutput():string{
 		$out = '';
 		foreach($this->output as $key=>$str){
 			if(empty($str)) continue;
