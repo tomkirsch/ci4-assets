@@ -282,8 +282,9 @@ class AssetLib{
 		if($cleanOutputBuffer){
 			ob_end_clean();
 		}
-		$app = new MinifyApp($this->config->minifyConfigPath);
+		$app = new MinifyApp(realpath($this->config->minifyConfigPath));
 		$app->runServer();
+		exit;
 	}
 	
 	protected function createStyle(array $data, bool $useConfigPath=TRUE){

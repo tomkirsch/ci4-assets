@@ -5,8 +5,6 @@ class Min extends Controller{
 	
 	public function index(){
 		$this->assets = service('assets');
-		$this->assets->runMinify();
-		// minify will output its own headers, so make sure CI doesn't do anything weird by exiting the script immediately
-		die();
+		$this->assets->runMinify(); // note that this will exit the script and ob_end_clean()
 	}
 }
