@@ -6,11 +6,9 @@
     "require": {
         "php": ">=7.2",
 		"codeigniter4/framework": "^4",
-		"mrclay/minify": "~3.0.0"
+		"mrclay/minify": "^3.0"
     },
-	"autoload": {
-        "psr-4": {
-            "Tomkirsch\\Assets\\": "src/"
-        }
-    }
+	"archive": {
+        "exclude": ["tests"]
+	}
 }
