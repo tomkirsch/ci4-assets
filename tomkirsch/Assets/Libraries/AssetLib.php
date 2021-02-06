@@ -282,7 +282,9 @@ class AssetLib{
 		if($cleanOutputBuffer){
 			ob_end_clean();
 		}
-		$app = new MinifyApp(realpath($this->config->minifyConfigPath));
+		$configPath = $this->config->minifyConfigPath;
+		if(!is_dir($configPath)) throw new \Exception("The minify config path cannot be found: $configPath");
+		$app = new MinifyApp(realpath($configPath));
 		$app->runServer();
 		exit;
 	}
