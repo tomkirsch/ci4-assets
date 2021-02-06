@@ -12,21 +12,23 @@ Run `composer install --no-dev --optimize-autoloader`
 
 To override defaults, create the config file for your app `App\Config\AssetConfig`
 ```
+<?php namespace Config;
 
-```
+use Tomkirsch\Assets\Config\AssetConfig;
 
-Open/Create your app's `.env` file, and change settings to what you'd like. See `Tomkirsch\Assets\Config\AssetConfig.php` for full list.
+class Asset extends AssetConfig{
+	public $cacheKey = 1;
+	public $minify = TRUE;
+	public $minifyConfigPath = COMPOSER_PATH.'/tomkirsch/Assets/ThirdParty';
+}
 ```
-#--------------------------------------------------------------------
-# Assets
-#--------------------------------------------------------------------
-Tomkirsch\Assets\Config\AssetConfig.minify = true
-```
+See `Tomkirsch\Assets\Config\AssetConfig.php` for full list.
 
 Open App/Config/Services.php and add a method to grab an instance of the library:
 ```
-	public static function assets(){
-		return static::getSharedInstance('assets');
+	public static function assets($getShared = true, $config=NULL){
+		if(!$config) $config = new Asset();
+		return $getShared ? static::getSharedInstance('assets') : new \Tomkirsch\Assets\Libraries\AssetLib($config);
 	}
 ```
 Open App/Config/Routes.php and add the Min controller:
