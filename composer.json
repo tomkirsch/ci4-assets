@@ -8,8 +8,12 @@
 		"codeigniter4/framework": "^4",
 		"mrclay/minify": "^3.0"
     },
+	"autoload": {
+        "psr-4": {
+            "Tomkirsch\\Assets\\": "src/"
+        }
+	},
 	"archive": {
         "exclude": ["tests"]
 	}
-	
 }
