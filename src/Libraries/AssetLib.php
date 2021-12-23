@@ -421,7 +421,7 @@ class AssetLib{
 					'minify'=>FALSE, 
 					'ajax'=>TRUE, 
 					'priority'=>'post_dom', 
-					'path'=>base_url().'/',
+					'path'=>'',
 					'useCacheKey'=>FALSE,
 				]);
 				break;
