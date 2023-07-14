@@ -19,8 +19,9 @@ use CodeIgniter\Config\BaseService;
  */
 class Services extends BaseService
 {
-	public static function assets($getShared = true, $config=NULL){
-		if(!$config) $config = new Asset();
-		return $getShared ? static::getSharedInstance('assets') : new \Tomkirsch\Assets\Libraries\AssetLib($config);
-	}
+    public static function assets($getShared = true, $config = NULL): \Tomkirsch\Assets\Libraries\AssetLib
+    {
+        if (!$config) $config = new Asset();
+        return $getShared ? static::getSharedInstance('assets') : new \Tomkirsch\Assets\Libraries\AssetLib($config);
+    }
 }

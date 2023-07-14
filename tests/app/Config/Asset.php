@@ -1,9 +1,12 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 use Tomkirsch\Assets\Config\AssetConfig;
 
-class Asset extends AssetConfig{
+class Asset extends AssetConfig
+{
 	public $cacheKey = 1;
 	public $minify = TRUE;
-	public $minifyConfigPath = ROOTPATH.'../Assets/ThirdParty';
+	public $minifyConfigPath = ROOTPATH . '../src/ThirdParty';
 }
