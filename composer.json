@@ -1,19 +1,26 @@
 {
+    "__comment": "7/14/23 locked in mrclay/props-dic due to issue: https://github.com/mrclay/Props/issues/12",
     "name": "tomkirsch/assets",
     "type": "library",
     "description": "Asset Library for CI4",
-	"license": "MIT",
+    "license": "MIT",
     "require": {
         "php": ">=7.2",
-		"codeigniter4/framework": "^4",
-		"mrclay/minify": "^3.0"
+        "codeigniter4/framework": "^4",
+        "mrclay/minify": "^3.0",
+        "mrclay/props-dic": "3.0.0"
     },
-	"autoload": {
+    "autoload": {
         "psr-4": {
             "Tomkirsch\\Assets\\": "src/"
         }
-	},
-	"archive": {
-        "exclude": ["tests"]
-	}
+    },
+    "archive": {
+        "exclude": [
+            "tests"
+        ]
+    },
+    "require-dev": {
+        "tatter/patches": "^2.0"
+    }
 }
