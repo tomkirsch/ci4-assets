@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "codeigniter4/framework",
-            "version": "v4.3.6",
+            "version": "v4.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeigniter4/framework.git",
-                "reference": "e3921233a20daf05ae9d2b50ca41ce97748e1d6d"
+                "reference": "7d393f85e8410f16654fa9b486694ff68c354c99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeigniter4/framework/zipball/e3921233a20daf05ae9d2b50ca41ce97748e1d6d",
-                "reference": "e3921233a20daf05ae9d2b50ca41ce97748e1d6d",
+                "url": "https://api.github.com/repos/codeigniter4/framework/zipball/7d393f85e8410f16654fa9b486694ff68c354c99",
+                "reference": "7d393f85e8410f16654fa9b486694ff68c354c99",
                 "shasum": ""
             },
             "require": {
@@ -29,9 +29,9 @@
                 "psr/log": "^1.1"
             },
             "require-dev": {
-                "codeigniter/coding-standard": "^1.5",
+                "codeigniter/coding-standard": "^1.7",
                 "fakerphp/faker": "^1.9",
-                "friendsofphp/php-cs-fixer": "3.13.0",
+                "friendsofphp/php-cs-fixer": "^3.47.1",
                 "kint-php/kint": "^5.0.4",
                 "mikey179/vfsstream": "^1.6",
                 "nexusphp/cs-config": "^3.6",
@@ -54,6 +54,7 @@
                 "ext-readline": "Improves CLI::input() usability",
                 "ext-redis": "If you use Cache class RedisHandler",
                 "ext-simplexml": "If you format XML",
+                "ext-sodium": "If you use Encryption SodiumHandler",
                 "ext-sqlite3": "If you use SQLite3",
                 "ext-sqlsrv": "If you use SQL Server",
                 "ext-xdebug": "If you use CIUnitTestCase::assertHeaderEmitted()"
@@ -78,7 +79,7 @@
                 "slack": "https://codeigniterchat.slack.com",
                 "source": "https://github.com/codeigniter4/CodeIgniter4"
             },
-            "time": "2023-06-17T23:13:38+00:00"
+            "time": "2024-02-24T02:42:57+00:00"
         },
         {
             "name": "intervention/httpauth",
@@ -143,33 +144,33 @@
         },
         {
             "name": "laminas/laminas-escaper",
-            "version": "2.12.0",
+            "version": "2.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-escaper.git",
-                "reference": "ee7a4c37bf3d0e8c03635d5bddb5bb3184ead490"
+                "reference": "af459883f4018d0f8a0c69c7a209daef3bf973ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-escaper/zipball/ee7a4c37bf3d0e8c03635d5bddb5bb3184ead490",
-                "reference": "ee7a4c37bf3d0e8c03635d5bddb5bb3184ead490",
+                "url": "https://api.github.com/repos/laminas/laminas-escaper/zipball/af459883f4018d0f8a0c69c7a209daef3bf973ba",
+                "reference": "af459883f4018d0f8a0c69c7a209daef3bf973ba",
                 "shasum": ""
             },
             "require": {
                 "ext-ctype": "*",
                 "ext-mbstring": "*",
-                "php": "^7.4 || ~8.0.0 || ~8.1.0 || ~8.2.0"
+                "php": "~8.1.0 || ~8.2.0 || ~8.3.0"
             },
             "conflict": {
                 "zendframework/zend-escaper": "*"
             },
             "require-dev": {
-                "infection/infection": "^0.26.6",
-                "laminas/laminas-coding-standard": "~2.4.0",
+                "infection/infection": "^0.27.0",
+                "laminas/laminas-coding-standard": "~2.5.0",
                 "maglnet/composer-require-checker": "^3.8.0",
-                "phpunit/phpunit": "^9.5.18",
-                "psalm/plugin-phpunit": "^0.17.0",
-                "vimeo/psalm": "^4.22.0"
+                "phpunit/phpunit": "^9.6.7",
+                "psalm/plugin-phpunit": "^0.18.4",
+                "vimeo/psalm": "^5.9"
             },
             "type": "library",
             "autoload": {
@@ -201,7 +202,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2022-10-10T10:11:09+00:00"
+            "time": "2023-10-10T08:35:13+00:00"
         },
         {
             "name": "marcusschwarz/lesserphp",
@@ -261,16 +262,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.9.1",
+            "version": "2.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "f259e2b15fb95494c83f52d3caad003bbf5ffaa1"
+                "reference": "437cb3628f4cf6042cc10ae97fc2b8472e48ca1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f259e2b15fb95494c83f52d3caad003bbf5ffaa1",
-                "reference": "f259e2b15fb95494c83f52d3caad003bbf5ffaa1",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/437cb3628f4cf6042cc10ae97fc2b8472e48ca1f",
+                "reference": "437cb3628f4cf6042cc10ae97fc2b8472e48ca1f",
                 "shasum": ""
             },
             "require": {
@@ -347,7 +348,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.9.1"
+                "source": "https://github.com/Seldaek/monolog/tree/2.9.2"
             },
             "funding": [
                 {
@@ -359,7 +360,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-06T13:44:46+00:00"
+            "time": "2023-10-27T15:25:26+00:00"
         },
         {
             "name": "mrclay/jsmin-php",
@@ -752,16 +753,16 @@
     "packages-dev": [
         {
             "name": "tatter/patches",
-            "version": "v2.0.5",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tattersoftware/codeigniter4-patches.git",
-                "reference": "2ab870e5aa4517e480ac479c401211e623aa275c"
+                "reference": "0a6f3f103ad1b1c45f3b8d5ac4156b2848e8cc99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tattersoftware/codeigniter4-patches/zipball/2ab870e5aa4517e480ac479c401211e623aa275c",
-                "reference": "2ab870e5aa4517e480ac479c401211e623aa275c",
+                "url": "https://api.github.com/repos/tattersoftware/codeigniter4-patches/zipball/0a6f3f103ad1b1c45f3b8d5ac4156b2848e8cc99",
+                "reference": "0a6f3f103ad1b1c45f3b8d5ac4156b2848e8cc99",
                 "shasum": ""
             },
             "require": {
@@ -795,7 +796,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tattersoftware/codeigniter4-patches/issues",
-                "source": "https://github.com/tattersoftware/codeigniter4-patches/tree/v2.0.5"
+                "source": "https://github.com/tattersoftware/codeigniter4-patches/tree/v2.1.0"
             },
             "funding": [
                 {
@@ -807,7 +808,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-30T23:14:51+00:00"
+            "time": "2023-09-26T12:23:22+00:00"
         }
     ],
     "aliases": [],
